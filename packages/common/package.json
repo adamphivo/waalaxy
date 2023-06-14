@@ -1,0 +1,10 @@
+{
+  "name": "@waalaxy/common",
+  "version": "1.0.0",
+  "description": "The package containing the express server",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "start": "tsc -w & nodemon -q -w dist build/index.js"
+  }
+}

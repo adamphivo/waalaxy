@@ -1,11 +1,25 @@
 {
   "name": "waalaxy",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build --workspaces --if-present",
+    "start": "concurrently npm:start:*",
+    "start:client": "npm run start --workspace=@waalaxy/client",
+    "start:common": "npm run start --workspace=@waalaxy/common",
+    "start:server": "npm run start --workspace=@waalaxy/server"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Adam Phi Vo",
+  "dependencies": {
+    "@waalaxy/client": "^0.0.0",
+    "@waalaxy/common": "^1.0.0",
+    "@waalaxy/server": "^1.0.0",
+    "typescript": "^5.1.3"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "nodemon": "^2.0.22"
+  }
 }
